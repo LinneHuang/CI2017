@@ -1,0 +1,25 @@
+# Showing [trending spots] in [city]
+
+## User Flow
+
+1. The user asks [city]
+2. The bot replies with [1 random trendy spot, from no.1 to no.5 on the list] in [city]
+
+
+## Possible Engineering
+
+1. The user provides a [cityName]
+2. The bot sends [cityName] to call the data of [trending]
+3. The bot selects one from the top 5 spots, randomly
+4. The bot speaks out [chosenTrendingSpot]
+
+
+## Reference:
+- Foursquare API Javascript Example
+https://developer.foursquare.com/overview/tutorial
+- Foursquare “What is API”
+https://www.youtube.com/watch?v=0TQoof_67_Q
+
+
+## Challenges:
+Now I understand what is API, and what it looks like, but I have no idea how to put it in my Javascript code, and how to *call* the data with user’s input.

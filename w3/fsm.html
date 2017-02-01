@@ -8,13 +8,17 @@
 <style>
   .speech {border: 1px solid #DDD; width: 300px; padding: 0; margin: 0}
   .speech input {border: 0; width: 240px; display: inline-block; height: 30px;}
-  .speech img {float: right; width: 40px }
+  .speech img {float: right; width: 40px; }
 </style>
  
  
 <!-- HTML5 Speech Recognition API -->
+<!-- About: This script implements a simple Finate State Machine  -->
+<!-- Author: Maxim Makatchev -->
 
 <script>
+  var state = "initial"
+
   function startDictation() {
  
     if (window.hasOwnProperty('webkitSpeechRecognition')) {
@@ -51,10 +55,17 @@
    */
   function decide_response(user_said) {
     var response;
-    if (user_said.toLowerCase().includes("hello")) {
-      response = "hello back to you";
+    if (user_said.toLowerCase().includes("play") && user_said.toLowerCase().includes("michael jackson") && state === "initial") {
+      response = "ok, playing michael jackson";
+    } else if (user_said.toLowerCase().includes("play") && state === "initial") {
+      response = "Play who?";
+      state = "play_song"
+    } else if (user_said.toLowerCase().includes("michael jackson") && state === "play_song") {
+      response = "ok, playing michael jackson";
+      state = "initial"
     } else if (user_said.toLowerCase().includes("bye")) {
-      response = "good bye!";
+      response = "good bye to you!";
+      state = "initial"
     } else {
       response = "i don't get it";
     }
